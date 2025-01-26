@@ -5,6 +5,8 @@ import { HasSignedOut } from "./user";
 let ChangingUsername = "";
 let ChangingSignedIn = false;
 let SignOutFinished = false;
+let id = "";
+let Password = "";
 const Signup = () => {
   let loginCheck = document.getElementById("loginCheck");
   let navigate = useNavigate();
@@ -41,7 +43,9 @@ const Signup = () => {
           .then((responseData) => {
             console.log(responseData);
             ChangingUsername = responseData.name;
+            id = responseData.id;
             ChangingSignedIn = true;
+            Password = password;
             navigate("/");
           });
       }
@@ -85,4 +89,11 @@ const Signup = () => {
   );
 };
 
-export { Signup, ChangingUsername, ChangingSignedIn, SignOutFinished };
+export {
+  Signup,
+  ChangingUsername,
+  ChangingSignedIn,
+  SignOutFinished,
+  id,
+  Password,
+};
