@@ -7,6 +7,7 @@ let ChangingSignedIn = false;
 let SignOutFinished = false;
 let id = "";
 let Password = "";
+let username = "";
 const Signup = () => {
   let loginCheck = document.getElementById("loginCheck");
   let navigate = useNavigate();
@@ -46,6 +47,7 @@ const Signup = () => {
             id = responseData.id;
             ChangingSignedIn = true;
             Password = password;
+            username = responseData.name;
             navigate("/");
           });
       }
@@ -96,4 +98,5 @@ export {
   SignOutFinished,
   id,
   Password,
+  username,
 };

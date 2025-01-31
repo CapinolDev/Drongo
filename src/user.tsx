@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Navbar } from "./components/Navbar";
 import { useNavigate } from "react-router-dom";
-import { SignOutFinished, id, Password } from "./signup";
+import { SignOutFinished, id, Password, username } from "./signup";
 let HasSignedOut = false;
 const User = () => {
   const [newpassword, setNewPassword] = useState("");
@@ -22,6 +22,10 @@ const User = () => {
 
     const requestHeaders: HeadersInit = new Headers();
     requestHeaders.set("Content-Type", "application/json");
+    requestHeaders.set(
+      "Authorization",
+      "Basic " + btoa(username + ":" + Password)
+    );
 
     fetch("http://localhost/webservice/user/UpdatePassword/" + id, {
       method: "PUT",
