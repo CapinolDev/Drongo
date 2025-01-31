@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Navbar, SignedIn, Username } from "./components/Navbar";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { HasSignedOut } from "./user";
 let ChangingUsername = "";
 let ChangingSignedIn = false;
@@ -85,6 +85,10 @@ const Signup = () => {
         <button className="h-10 text-center hover:bg-slate-600 sticky top-100  border ">
           Login
         </button>
+        <br />
+        <NavLink to={"/forget"} className={"font-mono"}>
+          Forgot password
+        </NavLink>
         <p id="loginCheck"></p>
       </form>
     </>
