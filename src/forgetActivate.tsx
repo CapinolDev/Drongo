@@ -20,13 +20,21 @@ const forgetActivate = () => {
     }).then((response) => {
       console.log("Data sent");
       console.log(response.status);
+      if (response.status === 204) {
+        document.getElementById("passwordChanged!").textContent =
+          "Password changed!";
+      }
+      if (response.status === 400) {
+        document.getElementById("passwordChanged!").textContent =
+          "Password should be minimum 5 characters long!";
+      }
     });
   };
   return (
     <>
       <Navbar></Navbar>
-      <form onSubmit={handleSubmit}>
-        <label className={"font-mono"}>Password:</label>
+      <form onSubmit={handleSubmit} className="max-w-40 text-center mx-auto">
+        <label className={"font-mono text-xl"}> New password:</label>
         <input
           type="text"
           required
@@ -37,6 +45,7 @@ const forgetActivate = () => {
         <button className="h-10 text-center hover:bg-slate-600 sticky top-100  border ">
           Change password
         </button>
+        <p id="passwordChanged!"></p>
       </form>
     </>
   );

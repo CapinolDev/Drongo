@@ -65,7 +65,7 @@ const Signup = () => {
       <h1 className="mx-auto h-40 w-40 font-bold text-indigo-600 justify-center text-4xl font-mono">
         Login
       </h1>
-      <form className="max-w-40 text-center mx-auto " onSubmit={handleSubmit}>
+      <form className="max-w-40 text-center mx-auto" onSubmit={handleSubmit}>
         <label className={"font-mono"}>Email:</label>
         <input
           type="text"
